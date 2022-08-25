@@ -49,8 +49,7 @@ if (isset($_GET['izracunaj'])) {
             // Kada ostanu dva broja ili se dobije 100 (1 + 0 + 0 = 1)
             // $niz se pretvara u string i vraća
             if (count($niz) == 2 && array_sum($niz) < 20 || array_sum($niz) == 1) {
-                $niz = implode($niz);
-                return $niz;
+                return $niz = implode($niz);
             }
 
             // Petlja zbraja prvi i zadnji broj u $niz,
