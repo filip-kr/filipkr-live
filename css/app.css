@@ -65,3 +65,19 @@
         transform: scale(.75);
     }
 }
+
+.cookie-container {
+    position: fixed;
+    bottom: -100%;
+    left :0;
+    right: 0;
+    background: #2f3640;
+    color: #f5f6fa;
+    padding: 32px;
+    box-shadow: 0 -2px 16px #2f3640;
+    transition: 400ms;
+}
+
+.cookie-container.active {
+    bottom: 0;
+}

@@ -29,8 +29,8 @@ session_start();
 
                         <input type="submit" value="Pristup" class="button success">
                         <?php
-                        if(isset($_GET['neuspjelo']) === true) {
-                            echo '<b>', '<br />', 'Netočni pristupni podaci.', '<br />', 'Savjet: nove naočale.', '</b>';
+                        if (isset($_GET['neuspjelo']) === true) {
+                            echo '<b>', '<br />', 'Netočni pristupni podaci.', '</b>';
                         }
 
                         if (isset($_GET['izlaz']) === true) {
@@ -50,6 +50,13 @@ session_start();
     </footer>
     <!-- END podnožje -->
 
+    <!-- START kolačići -->
+    <div class="cookie-container">
+        <h4>Kolačići</h4>
+        <p>Korištenjem ove stranice pristajete na uporabu kolačića u pregledniku.</p>
+        <button type="button" class="button alert cookieBtn">Razumijem</button>
+    </div>
+    <!-- END kolačići  -->
 
     <!-- JavaScript -->
     <?php require_once 'js.php'; ?>
