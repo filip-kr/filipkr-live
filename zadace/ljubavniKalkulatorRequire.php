@@ -47,11 +47,10 @@ if (isset($_GET['izracunaj'])) {
         function ljubavniKalkulator($niz)
         {
             // Kada ostanu dva broja ili se dobije 100 (1 + 0 + 0 = 1)
-            // $niz se pretvara u string i echo-a
+            // $niz se pretvara u string i vraća
             if (count($niz) == 2 && array_sum($niz) < 20 || array_sum($niz) == 1) {
-                $nizString = implode($niz);
-                echo '<h3>', 'Postotak ljubavi u zraku iznosi ', '</h3>', '<br/>', '<br/>', '<h1>', $nizString, '% !', '</h1>';
-                return;
+                $niz = implode($niz);
+                return $niz;
             }
 
             // Petlja zbraja prvi i zadnji broj u $niz,
@@ -67,9 +66,10 @@ if (isset($_GET['izracunaj'])) {
             $nizString = implode($niz);
             $niz = str_split($nizString);
 
-            ljubavniKalkulator($niz);
+            return ljubavniKalkulator($niz);
         }
 
-        ljubavniKalkulator($ponovljenaSlova);
+        $ljubavniPostotak = ljubavniKalkulator($ponovljenaSlova);
+        echo '<h3>', 'Postotak ljubavi u zraku iznosi ', '</h3>', '<br/>', '<br/>', '<h1>', $ljubavniPostotak, '% !', '</h1>';
     }
 }
