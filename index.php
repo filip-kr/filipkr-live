@@ -22,10 +22,10 @@ session_start();
                 <div class="medium-3 cell">
                     <form action="autorizacija/autorizacija.php" method="post">
                         <label for="korisnickoime">Korisničko ime</label>
-                        <input type="text" name="korisnickoime" id="korisnickoime" placeholder="'g0st'">
+                        <input type="text" name="korisnickoime" id="korisnickoime" placeholder="'g0st'" value="g0st">
 
                         <label for="lozinka">Lozinka</label>
-                        <input type="password" name="lozinka" id="lozinka" placeholder="'dobrodosli1'">
+                        <input type="password" name="lozinka" id="lozinka" placeholder="'dobrodosli1'" value="dobrodosli1">
 
                         <input type="submit" value="Pristup" class="button success">
                         <?php
