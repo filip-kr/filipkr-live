@@ -7,12 +7,13 @@ if (isset($_GET['izracunaj'])) {
     $ime2 = $_GET['ime2'];
 
     // Pretvaranje svih velikih slova u mala
-    $ime1 = strtolower($ime1);
-    $ime2 = strtolower($ime2);
+    $ime1 = mb_strtolower($ime1);
+    $ime2 = mb_strtolower($ime2);
 
     // Čišćenje od razmaka
     $ime1 = str_replace(' ', '', $ime1);
     $ime2 = str_replace(' ', '', $ime2);
+
 
     // Konkatenacija
     $imena = $ime1 . $ime2;
@@ -27,7 +28,7 @@ if (isset($_GET['izracunaj'])) {
 
         // Za sve ostale unose:
         // Pretvaranje stringa u niz
-        $imena = str_split($imena);
+        $imena = mb_str_split($imena);
 
         // Stvaranje zrcalnog niza radi brojanja istih slova
         $imena2 = array_count_values($imena);
@@ -63,7 +64,7 @@ if (isset($_GET['izracunaj'])) {
             // u niz kako bi se dvoznamenkasti brojevi podijelili
             // na dva broja
             $nizString = implode($niz);
-            $niz = str_split($nizString);
+            $niz = mb_str_split($nizString);
 
             return ljubavniKalkulator($niz);
         }
