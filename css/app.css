@@ -1,3 +1,4 @@
+/* START predložak */
 .footer {
     position: absolute;
     bottom: 0px;
@@ -10,17 +11,35 @@
 #izlaz {
     background-color: lightgrey;
 }
+/* END predložak */
 
+/* START ciklična tablica */
 .ciklicnaTablica {
+    border-collapse: separate;
+    border: transparent;
+    border-radius: 6px;
     text-align: center;
+    font: color white;
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.ciklicnaPosljednjaCelija {
-    background-color:gold
+.ciklicnaCelija {
+    border-collapse: separate;
+    border: solid white 1px;
+    border-radius:6px;
+    background-color: gray;
 }
 
+.ciklicnaPosljednjaCelija {
+    border-collapse: separate;
+    border: solid red 3px;
+    border-radius: 6px;
+    background-color: gray;
+}
+/* END ciklična tablica */
+
+/* START tablica množenja */
 .tablica-mnozenja {
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -31,7 +50,10 @@
     border: 1px solid black;
     background-color: lightgoldenrodyellow;
 }
+/* END tablica množenja */
 
+
+/* START ljubavni kalkulator */
 .ljubavniKalkulatorRezultat {
     text-align: center;
 }
@@ -65,11 +87,13 @@
         transform: scale(.75);
     }
 }
+/* END ljubavni kalkulator */
 
+/* START cookie container */
 .cookie-container {
     position: fixed;
     bottom: -100%;
-    left :0;
+    left: 0;
     right: 0;
     background: #2f3640;
     color: #f5f6fa;
@@ -81,3 +105,4 @@
 .cookie-container.active {
     bottom: 0;
 }
+/* END cookie container  */

@@ -44,7 +44,7 @@
                         </form>
                     </div>
                     <div class="cell small-4">
-                        <?php require_once 'ciklicnaTablicaRequire.php' ?>
+                        <?php require_once 'ciklicnaTablicaRequireCrtice.php' ?>
                     </div>
                 </div>
             </div>
