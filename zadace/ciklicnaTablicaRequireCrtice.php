@@ -31,9 +31,9 @@ if (isset($_GET['generiraj'])) {
             }
             // Punjenje niza za crtice istodobno s matricom
             if ($i < $brojStup && $i != $brojStup - 1) {
-                $crtice[$x][$y] = '<img src="crtica.png"><br />';
+                $crtice[$x][$y] = '<img src="crtica.png" class="ciklicnaCrticaLijevo"><br />';
             } else if ($i == $brojStup - 1) {
-                $crtice[$x][$y] = '<img src="crticaVert.png"><br />';
+                $crtice[$x][$y] = '<img src="crticaVert.png" class="ciklicnaCrticaGore"><br />';
             }
 
             $matrica[$x][$y--] = $vrijednost++;
@@ -51,9 +51,9 @@ if (isset($_GET['generiraj'])) {
             }
 
             if ($i < $brojRed && $i != $brojRed - 1) {
-                $crtice[$x][$y] = '<img src="crticaVert.png"><br />';
+                $crtice[$x][$y] = '<img src="crticaVert.png" class="ciklicnaCrticaGore"><br />';
             } else if ($i == $brojRed - 1) {
-                $crtice[$x][$y] = '<img src="crtica.png"><br />';
+                $crtice[$x][$y] = '<img src="crtica.png" class="ciklicnaCrticaDesno"><br />';
             }
 
             $matrica[$x--][$y] = $vrijednost++;
@@ -70,9 +70,9 @@ if (isset($_GET['generiraj'])) {
             }
 
             if ($i < $brojStup && $i != $brojStup - 1) {
-                $crtice[$x][$y] = '<img src="crtica.png"><br />';
+                $crtice[$x][$y] = '<img src="crtica.png" class="ciklicnaCrticaDesno"><br />';
             } else if ($i == $brojStup - 1) {
-                $crtice[$x][$y] = '<img src="crticaVert.png"><br />';
+                $crtice[$x][$y] = '<img src="crticaVert.png" class="ciklicnaCrticaDolje"><br />';
             }
 
             $matrica[$x][$y++] = $vrijednost++;
@@ -89,9 +89,9 @@ if (isset($_GET['generiraj'])) {
             }
 
             if ($i < $brojRed && $i != $brojRed - 1) {
-                $crtice[$x][$y] = '<img src="crticaVert.png"><br />';
+                $crtice[$x][$y] = '<img src="crticaVert.png" class="ciklicnaCrticaDolje"><br />';
             } else if ($i == $brojRed - 1) {
-                $crtice[$x][$y] = '<img src="crtica.png"><br />';
+                $crtice[$x][$y] = '<img src="crtica.png" class="ciklicnaCrticaLijevo"><br />';
             }
 
             $matrica[$x++][$y] = $vrijednost++;
@@ -112,8 +112,12 @@ if (isset($_GET['generiraj'])) {
                 echo '</td>';
             } else {
                 echo '<td class="ciklicnaCelija">';
+                echo '<div class="divSlika">';
                 echo $crtice[$i][$j];
+                echo '</div>';
+                echo '<div class="divTekst">';
                 echo $matrica[$i][$j];
+                echo '</div>';
                 echo '</td>';
             }
         }
