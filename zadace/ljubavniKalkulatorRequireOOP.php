@@ -2,12 +2,11 @@
 
 class LjubavniKalkulator
 {
-    public string $ime1;
-    public string $ime2;
-    public string | array $imena;
-    public array $imena2;
-    public array $ponovljenaSlova;
-    public bool $filipTea;
+    private string $ime1;
+    private string $ime2;
+    private string | array $imena;
+    private array $imena2;
+    private array $ponovljenaSlova;
 
     public function __construct(string $prvoIme, string $drugoIme)
     {
@@ -25,15 +24,24 @@ class LjubavniKalkulator
         $this->imena2 = array_count_values($this->imena);
 
         $this->ponovljenaSlova = [];
-
-        if ($this->ime1 === 'filip' && $this->ime2 === 'tea' || $this->ime1 === 'tea' && $this->ime2 === 'filip') {
-            $this->filipTea = true;
-        } else {
-            $this->filipTea = false;
-        }
     }
 
-    public function stvoriPrviRedBrojeva(): array
+    public function getIme1(): string
+    {
+        return $this->ime1;
+    }
+
+    public function getIme2(): string
+    {
+        return $this->ime2;
+    }
+
+    public function getPostotakLjubavi(): string
+    {
+        return $this->izracunajPostotakLjubavi($this->stvoriPrviRedBrojeva());
+    }
+
+    private function stvoriPrviRedBrojeva(): array
     {
         for ($i = 0; $i < count($this->imena); $i++) {
             if (array_key_exists($this->imena[$i], $this->imena2)) {
@@ -43,7 +51,7 @@ class LjubavniKalkulator
         return $this->ponovljenaSlova;
     }
 
-    public function izracunajPostotakLjubavi(array $niz): string
+    private function izracunajPostotakLjubavi(array $niz): string
     {
         if (count($niz) == 2 && array_sum($niz) < 20 || array_sum($niz) == 1) {
             return $niz = implode($niz);

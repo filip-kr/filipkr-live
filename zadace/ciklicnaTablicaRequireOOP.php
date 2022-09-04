@@ -2,13 +2,13 @@
 
 class CiklicnaTablica
 {
-    public array $matrica;
-    public array $crtice;
-    public int $brojRed;
-    public int $brojStup;
-    public int $x;
-    public int $y;
-    public int $vrijednost;
+    private array $matrica;
+    private array $crtice;
+    private int $brojRed;
+    private int $brojStup;
+    private int $x;
+    private int $y;
+    private int $vrijednost;
 
     public function __construct(int $brojRedova, int $brojStupaca)
     {
@@ -24,8 +24,21 @@ class CiklicnaTablica
         $this->vrijednost = 1;
     }
 
-    public function ispuniMatricuBrojevima(): array
+    public function getMatrica(): array
     {
+        return $this->ispuniMatricuBrojevima();
+    }
+
+    public function getCrtice(): array
+    {
+        return $this->poredajCrticePremaMatrici($this->brojRed, $this->brojStup);
+    }
+
+    private function ispuniMatricuBrojevima(): array
+    {
+        $pocetniBrojRedova = $this->brojRed;
+        $pocetniBrojStupaca = $this->brojStup;
+
         while ($this->brojRed > 0 && $this->brojStup > 0) {
 
             // S desna na lijevo
@@ -80,10 +93,12 @@ class CiklicnaTablica
             $this->y--;
             $this->brojStup--;
         }
+        $this->brojRed = $pocetniBrojRedova;
+        $this->brojStup = $pocetniBrojStupaca;
         return $this->matrica;
     }
 
-    public function poredajCrticePremaMatrici(int $brojRedova, int $brojStupaca): array
+    private function poredajCrticePremaMatrici(int $brojRedova, int $brojStupaca): array
     {
         $x = $brojRedova - 1;
         $y = $brojStupaca - 1;

@@ -27,7 +27,7 @@
             <div class="grid-container fluid">
                 <div class="grid-x grid-margin-x">
                     <div class="cell small-4">
-                        <form action="" method="get">
+                        <form action="" method="post">
                             <label for="brojRedaka">
                                 BROJ REDAKA:
                                 <input type="number" name="brojRedova" min=1 required>
@@ -42,30 +42,34 @@
                                 <input type="submit" name="generiraj" value="Generiraj" class="button">
                             </label>
                         </form>
+                        <label for="reset">
+                            <a href="ciklicnaTablicaOOP.php" class="button alert">Resetiraj</a>
+                        </label>
                     </div>
                     <div class="cell small-4">
                         <?php require_once 'ciklicnaTablicaRequireOOP.php';
 
-                        if (isset($_GET['generiraj'])) {
-                            $ciklicnaTablica = new CiklicnaTablica($_GET['brojRedova'], $_GET['brojStupaca']);
-                            $brojacRed = $ciklicnaTablica->brojRed;
-                            $brojacStup = $ciklicnaTablica->brojStup;
+                        if (isset($_POST['generiraj'])) {
+                            $ciklicnaTablica = new CiklicnaTablica($_POST['brojRedova'], $_POST['brojStupaca']);
 
-                            $ciklicnaTablica->ispuniMatricuBrojevima();
-                            $ciklicnaTablica->poredajCrticePremaMatrici($_GET['brojRedova'], $_GET['brojStupaca']);
+                            $matrica = $ciklicnaTablica->getMatrica();
+                            $crtice = $ciklicnaTablica->getCrtice();
+
+                            $brojacRed = $_POST['brojRedova'];
+                            $brojacStup = $_POST['brojStupaca'];
 
                             echo '<table class="ciklicnaTablica">';
                             for ($i = 0; $i < $brojacRed; $i++) {
                                 echo '<tr>';
                                 for ($j = 0; $j < $brojacStup; $j++) {
-                                    if ($ciklicnaTablica->matrica[$i][$j] === $brojacRed * $brojacStup) {
+                                    if ($matrica[$i][$j] === $brojacRed * $brojacStup) {
                                         echo '<td class="ciklicnaPosljednjaCelija">',
-                                        $ciklicnaTablica->matrica[$i][$j],
+                                        $matrica[$i][$j],
                                         '</td>';
                                     } else {
                                         echo '<td class="ciklicnaCelija">',
                                         '<div class="divSlika">';
-                                        switch ($ciklicnaTablica->crtice[$i][$j]) {
+                                        switch ($crtice[$i][$j]) {
                                             case 'lijevo':
                                                 echo '<img src="crtica.png" class="ciklicnaCrticaLijevo">';
                                                 break;
@@ -82,7 +86,7 @@
                                         echo '<br />',
                                         '</div>',
                                         '<div class="divTekst">',
-                                        $ciklicnaTablica->matrica[$i][$j],
+                                        $matrica[$i][$j],
                                         '</div>',
                                         '</td>';
                                     }
