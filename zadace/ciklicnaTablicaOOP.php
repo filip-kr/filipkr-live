@@ -17,7 +17,7 @@
         <div class="callout">
             <div class="gornji-tekst">
                 <h5>
-                    <b>CIKLIČNA TABLICA:</b> broj 1 se nalazi u donjem desnom kutu,
+                    <b>CIKLIČNA TABLICA OOP:</b> broj 1 se nalazi u donjem desnom kutu,
                     a polja se popunjavaju spiralno ciklički u krug u smjeru
                     kazaljke na satu
                 </h5>
@@ -51,15 +51,41 @@
                             $brojacRed = $ciklicnaTablica->brojRed;
                             $brojacStup = $ciklicnaTablica->brojStup;
 
-                            $ciklicnaTablica->ispuniMatricu();
+                            $ciklicnaTablica->ispuniMatricuBrojevima();
+                            $ciklicnaTablica->poredajCrticePremaMatrici($_GET['brojRedova'], $_GET['brojStupaca']);
 
-                            echo '<table>';
+                            echo '<table class="ciklicnaTablica">';
                             for ($i = 0; $i < $brojacRed; $i++) {
                                 echo '<tr>';
                                 for ($j = 0; $j < $brojacStup; $j++) {
-                                    echo '<td>';
-                                    echo $ciklicnaTablica->matrica[$i][$j];
-                                    echo '</td>';
+                                    if ($ciklicnaTablica->matrica[$i][$j] === $brojacRed * $brojacStup) {
+                                        echo '<td class="ciklicnaPosljednjaCelija">',
+                                        $ciklicnaTablica->matrica[$i][$j],
+                                        '</td>';
+                                    } else {
+                                        echo '<td class="ciklicnaCelija">',
+                                        '<div class="divSlika">';
+                                        switch ($ciklicnaTablica->crtice[$i][$j]) {
+                                            case 'lijevo':
+                                                echo '<img src="crtica.png" class="ciklicnaCrticaLijevo">';
+                                                break;
+                                            case 'gore':
+                                                echo '<img src="crticaVert.png" class="ciklicnaCrticaGore">';
+                                                break;
+                                            case 'desno':
+                                                echo '<img src="crtica.png" class="ciklicnaCrticaDesno">';
+                                                break;
+                                            case 'dolje':
+                                                echo '<img src="crticaVert.png" class="ciklicnaCrticaDolje">';
+                                                break;
+                                        }
+                                        echo '<br />',
+                                        '</div>',
+                                        '<div class="divTekst">',
+                                        $ciklicnaTablica->matrica[$i][$j],
+                                        '</div>',
+                                        '</td>';
+                                    }
                                 }
                                 echo '</tr>';
                             }
