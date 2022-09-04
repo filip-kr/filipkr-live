@@ -10,7 +10,7 @@ class CiklicnaTablica
     public int $y;
     public int $vrijednost;
 
-    public function __construct($brojRedova, $brojStupaca)
+    public function __construct(int $brojRedova, int $brojStupaca)
     {
         $this->matrica = [[]];
         $this->crtice = [[]];
@@ -83,7 +83,7 @@ class CiklicnaTablica
         return $this->matrica;
     }
 
-    public function poredajCrticePremaMatrici($brojRedova, $brojStupaca): array
+    public function poredajCrticePremaMatrici(int $brojRedova, int $brojStupaca): array
     {
         $x = $brojRedova - 1;
         $y = $brojStupaca - 1;
