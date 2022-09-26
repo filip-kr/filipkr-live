@@ -44,9 +44,10 @@
                     <li><a target="_blank" href="../zadace/kamenSkarePapir.php">Kamen, škare, papir</a></li>
                     <li><a target="_blank" href="../zadace/tablicaMnozenja.php">Tablica množenja</a></li>
                     <li><a target="_blank" href="../zadace/ciklicnaTablica.php">Ciklična tablica</a></li>
-                    <li><a target="_blank" href="../zadace/ciklicnaTablicaOOP.php">Ciklična tablica OOP</a></li>
+                    <li><a target="_blank" href="../zadace/ciklicnaTablicaOOP.php">Ciklična tablica (OOP)</a></li>
                     <li><a target="_blank" href="../zadace/ljubavniKalkulator.php">Ljubavni kalkulator</a></li>
-                    <li><a target="_blank" href="../zadace/ljubavniKalkulatorOOP.php">Ljubavni kalkulator OOP</a></li>
+                    <li><a target="_blank" href="../zadace/ljubavniKalkulatorOOP.php">Ljubavni kalkulator (OOP)</a></li>
+                    <li><a target="_blank" href="../zadace/oibController.php">OIB kontroler (OOP)</a></li>
                 </ul>
             </li>
         </ul>
